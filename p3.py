@@ -1,6 +1,5 @@
 import sys
 
-
 def naive_factorization(n):
   pf = {}
 
@@ -10,19 +9,17 @@ def naive_factorization(n):
     while n % i == 0:
       pf[i] = 1 if i not in pf else pf[i] + 1
       n /= i
-      print "down to:", n
 
   if n != 1:
     pf[n] = 1
 
   return pf
 
-
 def print_factorization(pf):
   print " + ".join((
     "{}^{}".format(i, pf[i])
     for i in sorted(pf.keys(), reverse=True)))
 
-
-pf = naive_factorization(int(sys.argv[1]))
-print_factorization(pf)
+if __name__ == "__main__":
+  pf = naive_factorization(int(sys.argv[1]))
+  print_factorization(pf)
