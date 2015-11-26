@@ -1,5 +1,6 @@
 import sys
-from p3 import naive_factorization
+from operator import mul
+from p003 import naive_factorization
 
 def common_factors_for(numbers):
   factors = {}
@@ -12,6 +13,4 @@ def common_factors_for(numbers):
 if __name__ == "__main__":
   numbers = range(1, int(sys.argv[1]) + 1)
   factors = common_factors_for(numbers)
-  print reduce(
-    lambda x, y: x*y,
-    [factor**power for factor, power in factors.items()])
+  print reduce(mul, [factor**power for factor, power in factors.items()], 1)
